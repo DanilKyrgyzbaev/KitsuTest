@@ -1,0 +1,8 @@
+[versions]
+appProjectPath = ":app"
+dataProjectPath = ":data"
+domainProjectPath = ":domain"
+coreProjectPath = ":core"
+coreuiProjectPath = ":core-ui"
+featureMainProjectPath = ":features:main"
+appNamespace = "kg.geekstudio.kitsutest"

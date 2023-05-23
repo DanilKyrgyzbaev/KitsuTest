@@ -1,0 +1,13 @@
+[versions]
+compileSdk = "33"
+minSdk = "24"
+gradleVersion = "4.4"
+buildToolsVersion = "31.0.0"
+applicationId = "kg.geekstudio.kitsutest"
+targetSdkVersion = "33"
+versionCode = "1"
+versionName = "1.0"
+releaseBuildType = "release"
+debugBuildType = "debug"
+testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+

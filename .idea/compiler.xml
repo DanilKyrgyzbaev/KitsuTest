@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="16">
+      <module name="AndroidStudioProjects.KitsuTest.features.main" target="17" />
+      <module name="AndroidStudioProjects.KitsuTest.features.main.main" target="17" />
+      <module name="AndroidStudioProjects.KitsuTest.features.main.test" target="17" />
+      <module name="AndroidStudioProjects.KitsuTest.features.main.test~1" target="17" />
+      <module name="KitsuTest.core-ui.test" target="17" />
+      <module name="KitsuTest.data.test" target="17" />
+      <module name="KitsuTest.features.chat" target="17" />
+      <module name="KitsuTest.features.main.test" target="17" />
+      <module name="KitsuTest.features.test" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,1 @@
+/Users/macbook/AndroidStudioProjects/KitsuTest/data/build/classes/kotlin/main/DataModuleKt$dataModule$1.class:/Users/macbook/AndroidStudioProjects/KitsuTest/data/build/classes/kotlin/main/DataModuleKt.class
