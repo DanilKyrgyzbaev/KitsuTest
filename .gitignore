@@ -13,3 +13,12 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Project exclude paths
+/core/build/
+/core/build/classes/kotlin/main/
+/core-ui/build/
+/core-ui/build/intermediates/javac/debug/classes/
+/data/build/
+/domain/build/
+/domain/build/classes/kotlin/main/

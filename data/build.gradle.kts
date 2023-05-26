@@ -21,13 +21,10 @@ android {
             )
         }
 
-        getByName(config.versions.debugBuildType.get()) {
-            buildConfigField("String", "BASE_URL", "\"https://rickandmortyapi.com/\"")
-        }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_16
+        targetCompatibility = JavaVersion.VERSION_16
     }
     kotlinOptions {
         jvmTarget = buildOptions.versions.kotlinJvmTargetOptions.get()
@@ -42,6 +39,14 @@ dependencies {
         implementation(project(domainProjectPath.get()))
         implementation(project(coreProjectPath.get()))
     }
+
+    //Retrofit
+    implementation(libs.squareup.retrofit)
+    implementation(libs.squareup.retrofitConverterGson)
+    implementation(libs.squareup.okHttp)
+    implementation(libs.squareup.converterMoshi)
+    implementation(libs.squareup.loggingInterceptor)
+    implementation(libs.squareup.moshiKotlin)
 
     // coroutine
     implementation(libs.coroutines.core)

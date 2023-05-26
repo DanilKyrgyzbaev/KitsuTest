@@ -25,8 +25,8 @@ android {
 
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_16
+        targetCompatibility = JavaVersion.VERSION_16
     }
     kotlinOptions {
         jvmTarget = buildOptions.versions.kotlinJvmTargetOptions.get()
@@ -53,6 +53,9 @@ dependencies {
     implementation(libs.navigation.fragment)
     // koin
     implementation(libs.koin.core)
+    implementation(libs.coroutines.android)
+    
+
     implementation(libs.koin.navigation)
     // squareUp
     implementation(libs.squareup.retrofitConverterGson)

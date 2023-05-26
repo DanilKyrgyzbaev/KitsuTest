@@ -1,32 +1,46 @@
 package kg.geekstudio.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import kg.geekstudio.kitsutest.main.R
+import androidx.recyclerview.widget.LinearLayoutManager
+import base.BaseFragment
+import common.AnimeAdapter
+import kg.geekstudio.kitsutest.main.databinding.FragmentHomeBinding
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import state.UIState
 
-class HomeFragment : Fragment() {
+@ExperimentalCoroutinesApi
+class HomeFragment : BaseFragment<HomeViewModel, FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+    private lateinit var adapter: AnimeAdapter
+    override val viewModel by viewModel<HomeViewModel>()
 
-    companion object {
-        fun newInstance() = HomeFragment()
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.fetchAnime()
     }
 
-    private lateinit var viewModel: HomeViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_home, container, false)
+    override fun initialize() {
+        adapter = AnimeAdapter(ArrayList(), requireContext())
+        binding.recyclerView.adapter = adapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun setupObservers() {
+        viewModel.animeList.observe(viewLifecycleOwner) { uiState ->
+            when (uiState) {
+                is UIState.Success ->{
+                    val animeDataList = uiState.data
+                    adapter.updateData(animeDataList)
+                    adapter.notifyDataSetChanged()
+                }
+                is UIState.Error ->{
+                    val errorMessage = uiState.error
+                }
+                is UIState.Loading -> {
+                    // Обработка состояния загрузки
+                }
+            }
+        }
     }
-
 }
